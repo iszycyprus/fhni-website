@@ -54,99 +54,48 @@ const Footer = () => (
 // --- 404 PAGE ---
 const NotFoundPage = () => ( <div className="min-h-screen bg-black flex flex-col items-center justify-center text-center p-4"><div className="bg-zinc-900/50 p-8 rounded-full mb-6 border border-zinc-800"><AlertTriangle size={64} className="text-orange-500" /></div><h1 className="text-6xl font-black text-white mb-2">404</h1><h2 className="text-2xl font-bold text-gray-300 mb-6">Lost in the Wilderness?</h2><p className="text-gray-500 mb-8 max-w-md">The page you are looking for doesn't exist or has been moved. Let's get you back to the Hive.</p><Link to="/" className="bg-orange-600 text-white px-8 py-3 rounded-full font-bold hover:bg-orange-500 transition">Return Home</Link></div> );
 
-// --- ABOUT PAGE (UPDATED NAMES) ---
+// --- ABOUT PAGE ---
 const AboutPage = () => (
   <div className="min-h-screen bg-black pt-28 pb-12 px-4 relative">
     <div className="container mx-auto max-w-5xl relative z-10">
       <Reveal><h1 className="text-4xl md:text-5xl font-black text-white mb-8 border-l-8 border-orange-500 pl-6">WHO WE ARE</h1></Reveal>
       <Reveal delay={200}><div className="bg-zinc-900/80 p-8 rounded-2xl border border-zinc-700 mb-16"><p className="text-xl md:text-2xl text-gray-200 leading-relaxed"><span className="text-orange-500 font-bold">Fire Hive Network Int'l</span> is not just an organization; it is a spiritual ecosystem designed to raise, mentor, and position a generation of young people to take over systems and sectors for the Kingdom of God.</p></div></Reveal>
-
-      {/* CORE VALUES */}
       <div className="grid md:grid-cols-3 gap-6 mb-16">
         <Reveal delay={300}><div className="bg-zinc-900 p-6 rounded-xl border-t-4 border-red-500 h-full"><Flame className="text-red-500 w-10 h-10 mb-4"/><h3 className="text-xl font-bold text-white mb-2">Dominance</h3><p className="text-gray-400 text-sm">We don't just participate; we take over. Our mandate is to infiltrate every sector with Kingdom culture.</p></div></Reveal>
         <Reveal delay={400}><div className="bg-zinc-900 p-6 rounded-xl border-t-4 border-orange-500 h-full"><Shield className="text-orange-500 w-10 h-10 mb-4"/><h3 className="text-xl font-bold text-white mb-2">Excellence</h3><p className="text-gray-400 text-sm">We believe that excellence is the language of kings. We do everything with the highest standard.</p></div></Reveal>
         <Reveal delay={500}><div className="bg-zinc-900 p-6 rounded-xl border-t-4 border-blue-500 h-full"><Users className="text-blue-500 w-10 h-10 mb-4"/><h3 className="text-xl font-bold text-white mb-2">Family</h3><p className="text-gray-400 text-sm">We are a hive. We protect, support, and grow together. No soldier is left behind.</p></div></Reveal>
       </div>
-
-      {/* LEADERSHIP (UPDATED NAMES) */}
       <Reveal delay={600}>
         <h2 className="text-3xl font-black text-white mb-8 text-center">LEADERSHIP</h2>
         <div className="grid md:grid-cols-3 gap-8">
-          
-          <div className="text-center group">
-            <div className="w-40 h-40 mx-auto rounded-full overflow-hidden border-2 border-zinc-700 mb-4 group-hover:border-orange-500 transition">
-              <img src="/israel.jpg" alt="Israel Kizito" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500" onError={(e)=>{e.target.src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=60"}}/>
-            </div>
-            <h3 className="text-white font-bold text-lg">Israel Kizito</h3>
-            <p className="text-orange-500 text-sm font-bold uppercase">The Visionary</p>
-          </div>
-
-          {/* NAME CHANGED: SARAH -> EMMANUEL */}
-          <div className="text-center group">
-             <div className="w-40 h-40 mx-auto rounded-full overflow-hidden border-2 border-zinc-700 mb-4 group-hover:border-orange-500 transition">
-               <img src="/emmanuel.jpg" alt="Emmanuel Odunnaya" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500" onError={(e)=>{e.target.src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=60"}}/>
-             </div>
-             <h3 className="text-white font-bold text-lg">Emmanuel Odunnaya</h3>
-             <p className="text-orange-500 text-sm font-bold uppercase">Director of Ops</p>
-          </div>
-
-          {/* NAME CHANGED: AUDREY -> UCHE FAITH */}
-          <div className="text-center group">
-             <div className="w-40 h-40 mx-auto rounded-full overflow-hidden border-2 border-zinc-700 mb-4 group-hover:border-orange-500 transition">
-               <img src="/uche.jpg" alt="Uche Faith" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500" onError={(e)=>{e.target.src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=60"}}/>
-             </div>
-             <h3 className="text-white font-bold text-lg">Uche Faith</h3>
-             <p className="text-orange-500 text-sm font-bold uppercase">Media Head</p>
-          </div>
+          <div className="text-center group"><div className="w-40 h-40 mx-auto rounded-full overflow-hidden border-2 border-zinc-700 mb-4 group-hover:border-orange-500 transition"><img src="/israel.jpg" alt="Israel Kizito" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500" onError={(e)=>{e.target.src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=60"}}/></div><h3 className="text-white font-bold text-lg">Israel Kizito</h3><p className="text-orange-500 text-sm font-bold uppercase">The Visionary</p></div>
+          <div className="text-center group"><div className="w-40 h-40 mx-auto rounded-full overflow-hidden border-2 border-zinc-700 mb-4 group-hover:border-orange-500 transition"><img src="/emmanuel.jpg" alt="Emmanuel Odunnaya" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500" onError={(e)=>{e.target.src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=60"}}/></div><h3 className="text-white font-bold text-lg">Emmanuel Odunnaya</h3><p className="text-orange-500 text-sm font-bold uppercase">Director of Ops</p></div>
+          <div className="text-center group"><div className="w-40 h-40 mx-auto rounded-full overflow-hidden border-2 border-zinc-700 mb-4 group-hover:border-orange-500 transition"><img src="/uche.jpg" alt="Uche Faith" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500" onError={(e)=>{e.target.src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=60"}}/></div><h3 className="text-white font-bold text-lg">Uche Faith</h3><p className="text-orange-500 text-sm font-bold uppercase">Media Head</p></div>
         </div>
       </Reveal>
     </div>
   </div>
 );
 
-// --- GIVE PAGE (UPDATED: VISIBLE ACCOUNT NAME) ---
+// --- GIVE PAGE ---
 const GivePage = () => {
   const [copied, setCopied] = useState(false);
-  const handleCopy = () => {
-    navigator.clipboard.writeText("0123456789");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
+  const handleCopy = () => { navigator.clipboard.writeText("0123456789"); setCopied(true); setTimeout(() => setCopied(false), 2000); };
   return (
     <div className="min-h-screen bg-black pt-32 pb-12 px-4 text-center">
       <div className="container mx-auto max-w-2xl">
         <Reveal><h1 className="text-5xl font-black text-white mb-4">PARTNER WITH US</h1></Reveal>
-        
         <Reveal delay={200}>
           <div className="bg-zinc-900 border border-orange-500/50 rounded-2xl p-8 mb-8 relative overflow-hidden">
             <h2 className="text-2xl font-bold mb-6 text-white">Bank Transfer</h2>
             <div className="space-y-4 text-left">
-              
-              {/* ACCOUNT NAME BOX */}
-              <div className="bg-black p-4 rounded border border-zinc-700">
-                <p className="text-gray-500 text-xs uppercase tracking-wide">Account Name</p>
-                <p className="text-xl font-bold text-white tracking-wide">FIRE HIVE NETWORK INT'L</p>
-              </div>
-              
-              {/* ACCOUNT NUMBER BOX */}
-              <div className="bg-black p-4 rounded border border-zinc-700 flex justify-between items-center group cursor-pointer" onClick={handleCopy}>
-                <div>
-                  <p className="text-gray-500 text-xs uppercase tracking-wide">Account Number</p>
-                  <p className="text-3xl font-mono text-orange-500 font-bold">0123456789</p>
-                </div>
-                <button className={`p-3 rounded-full transition ${copied ? 'bg-green-600 text-white' : 'bg-zinc-800 text-gray-400 group-hover:text-white group-hover:bg-zinc-700'}`}>
-                  {copied ? <Check size={20}/> : <Copy size={20}/>}
-                </button>
-              </div>
+              <div className="bg-black p-4 rounded border border-zinc-700"><p className="text-gray-500 text-xs uppercase tracking-wide">Account Name</p><p className="text-xl font-bold text-white tracking-wide">FIRE HIVE NETWORK INT'L</p></div>
+              <div className="bg-black p-4 rounded border border-zinc-700 flex justify-between items-center group cursor-pointer" onClick={handleCopy}><div><p className="text-gray-500 text-xs uppercase tracking-wide">Account Number</p><p className="text-3xl font-mono text-orange-500 font-bold">0123456789</p></div><button className={`p-3 rounded-full transition ${copied ? 'bg-green-600 text-white' : 'bg-zinc-800 text-gray-400 group-hover:text-white group-hover:bg-zinc-700'}`}>{copied ? <Check size={20}/> : <Copy size={20}/>}</button></div>
               {copied && <p className="text-green-500 text-xs text-right animate-pulse">Copied to clipboard!</p>}
             </div>
           </div>
         </Reveal>
-
-        <Reveal delay={400}>
-          <button className="bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold px-10 py-4 rounded-full w-full transform transition active:scale-95">Give Online</button>
-        </Reveal>
+        <Reveal delay={400}><button className="bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold px-10 py-4 rounded-full w-full transform transition active:scale-95">Give Online</button></Reveal>
       </div>
     </div>
   );
@@ -172,7 +121,7 @@ const EventsPage = () => {
   );
 };
 
-// --- ROTATING GLOBE (Fixed Red Dot) ---
+// --- ROTATING GLOBE ---
 const RotatingGlobe = () => ( <div className="relative w-64 h-64 mx-auto my-8"><style>{globeStyles}</style><div className="earth-spin w-full h-full rounded-full bg-blue-900/50 relative overflow-hidden border-2 border-orange-500/30 shadow-[0_0_50px_rgba(249,115,22,0.6)]"><div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,0,0,0.8)] z-10"></div></div><div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 w-full h-full flex items-center justify-center pointer-events-none"><div className="relative w-24 h-24 opacity-80"><span className="absolute top-8 left-8 w-3 h-3 bg-red-600 rounded-full animate-ping"></span><span className="absolute top-8 left-8 w-3 h-3 bg-red-600 rounded-full border border-white"></span><div className="absolute -bottom-6 left-2 bg-black/80 px-2 py-1 rounded text-[10px] text-white border border-red-500">7 Chapters (NG)</div></div></div></div> );
 
 // --- OTHER COMPONENTS ---
@@ -180,23 +129,100 @@ const PortalPage = () => { const [role, setRole] = useState(null); const [inputC
 const NewsSection = () => { const [news, setNews] = useState([]); useEffect(() => { const fetchNews = async () => { const q = query(collection(db, "news"), orderBy("date", "desc")); const s = await getDocs(q); setNews(s.docs.map(d => ({id:d.id, ...d.data()}))); }; fetchNews(); }, []); return ( <div className="space-y-4">{news.map((item) => ( <Reveal key={item.id}><div className="bg-zinc-900 border border-zinc-800 p-6 rounded-xl"><div className="flex justify-between mb-2"><span className="text-orange-500 text-xs font-bold">{item.category}</span><span className="text-gray-500 text-xs">{item.date}</span></div><h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>{item.image && <img src={item.image} className="w-full h-40 object-cover rounded-lg mb-4" />}<p className="text-gray-400 text-sm">{item.content}</p></div></Reveal> ))}</div> ); };
 const SevenMountains = () => { const mountains = [ { id: "religion", name: "Religion", img: "https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=800&q=60" }, { id: "family", name: "Family", img: "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&q=60" }, { id: "education", name: "Education", img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=60" }, { id: "government", name: "Government", img: "https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=800&q=60" }, { id: "media", name: "Media", img: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=60" }, { id: "arts", name: "Arts & Ent.", img: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800&q=60" }, { id: "business", name: "Business", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=60" }, ]; return ( <div className="py-12"><Reveal><h2 className="text-3xl font-black text-white text-center mb-8">INFILTRATING THE <span className="text-orange-500">7 MOUNTAINS</span></h2></Reveal><div className="grid grid-cols-2 md:grid-cols-4 gap-4 px-4">{mountains.map((m, i) => ( <Reveal key={i} delay={i * 100}><Link to={`/mountain/${m.id}`} className="group relative h-40 md:h-60 rounded-xl overflow-hidden border border-zinc-800 cursor-pointer bg-zinc-900 block"><div className="absolute inset-0 flex items-center justify-center text-zinc-700"><ImageIcon size={40} /></div><img src={m.img} alt={m.name} className="w-full h-full object-cover relative z-10 group-hover:scale-110 transition duration-700" onError={(e) => e.target.style.opacity = 0} /><div className="absolute inset-0 bg-black/40 group-hover:bg-orange-600/60 transition duration-300 flex items-center justify-center z-20"><h3 className="text-white font-bold text-lg md:text-xl uppercase tracking-wider text-center px-2 drop-shadow-md">{m.name}</h3></div></Link></Reveal> ))}</div></div> ); };
 const MountainPage = () => { const { id } = useParams(); const data = mountainData[id]; if (!data) return <div className="min-h-screen bg-black pt-32 text-center text-white">Mountain Not Found</div>; return ( <div className="min-h-screen bg-black pt-28 pb-12 px-4"><Reveal><div className="relative h-64 md:h-80 rounded-3xl overflow-hidden mb-12 border-2 border-orange-500/30 container mx-auto max-w-5xl"><img src={data.image} alt={data.title} className="w-full h-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent flex flex-col justify-end p-8"><h1 className="text-4xl md:text-6xl font-black text-white mb-2">{data.title}</h1><p className="text-gray-300 text-lg md:text-xl max-w-2xl">{data.desc}</p></div></div></Reveal><div className="container mx-auto max-w-5xl grid md:grid-cols-2 gap-8"><Reveal delay={200}><div className="bg-zinc-900/50 p-8 rounded-2xl border border-zinc-800 h-full"><div className="flex items-center gap-3 mb-6"><div className="bg-blue-600/20 p-3 rounded-full"><Building2 className="text-blue-500 w-8 h-8" /></div><h2 className="text-2xl font-bold text-white">Top Organizations</h2></div><ul className="space-y-3">{data.orgs.map((org, i) => ( <li key={i} className="flex items-center gap-3 text-gray-300 border-b border-zinc-800 pb-2 hover:text-white hover:pl-2 transition-all"><span className="text-blue-500 font-bold text-xs">0{i+1}</span> {org}</li> ))}</ul></div></Reveal><Reveal delay={400}><div className="bg-zinc-900/50 p-8 rounded-2xl border border-zinc-800 h-full"><div className="flex items-center gap-3 mb-6"><div className="bg-orange-600/20 p-3 rounded-full"><Briefcase className="text-orange-500 w-8 h-8" /></div><h2 className="text-2xl font-bold text-white">Top Careers</h2></div><ul className="space-y-3">{data.careers.map((career, i) => ( <li key={i} className="flex items-center gap-3 text-gray-300 border-b border-zinc-800 pb-2 hover:text-white hover:pl-2 transition-all"><span className="text-orange-500 font-bold text-xs">0{i+1}</span> {career}</li> ))}</ul></div></Reveal></div><div className="text-center mt-12"><Link to="/" className="text-gray-500 hover:text-white transition">← Back to Home</Link></div></div> ); };
-const StartChapterPage = () => { const [step, setStep] = useState(1); const form = useRef(); const handleChapterSubmit = (e) => { e.preventDefault(); setStep(2); }; return ( <div className="min-h-screen bg-black pt-28 pb-12 px-4 relative"><div className="container mx-auto max-w-3xl relative z-10"><Reveal><div className="text-center mb-10"><h1 className="text-4xl font-black text-white mb-2">START A CHAPTER</h1></div></Reveal>{step === 1 && (<Reveal delay={200}><div className="bg-zinc-900/80 p-8 rounded-3xl"><form ref={form} onSubmit={handleChapterSubmit} className="space-y-4"><input placeholder="Full Name" className="w-full bg-black border border-zinc-700 p-4 rounded-xl text-white" /><button className="w-full bg-orange-600 text-white font-bold py-4 rounded-xl">Unlock Training</button></form></div></Reveal>)} {step === 2 && <div className="text-white text-center">Training Unlocked! Check WhatsApp.</div>}</div></div> ); };
 
-const HomePage = () => {
+// --- START CHAPTER PAGE (FIXED LINKS) ---
+const StartChapterPage = () => {
+  const [step, setStep] = useState(1);
+  const form = useRef();
+
+  const handleChapterSubmit = (e) => {
+    e.preventDefault();
+    emailjs.sendForm('service_aiag0y3', 'template_2zdojhl', form.current, 'JHMbo2ofXyt0Hnar2')
+      .then(() => {
+        alert("Application Received! Unlock your training now.");
+        setStep(2); 
+        window.scrollTo(0, 0);
+      }, () => {
+        alert("Connection Failed. Check internet.");
+      });
+  };
+
   return (
-    <>
-      <header className="relative pt-24 pb-16 overflow-hidden px-4">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-orange-600/30 rounded-full blur-[100px] pointer-events-none"></div>
-        <div className="container mx-auto relative z-10 flex flex-col items-center text-center">
-          <Reveal><div className="w-28 h-28 rounded-full border-4 border-orange-500/50 shadow-[0_0_40px_orange] overflow-hidden mb-6 bg-black mx-auto"><img src="/logo.png" alt="Logo" className="w-full h-full object-cover" onError={(e) => { e.target.onerror = null; e.target.src="/logo.jpg"; }} /></div></Reveal>
-          <Reveal delay={200}><h1 className="text-6xl md:text-8xl font-black text-white leading-none mb-4">RAISING <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600">AN ARMY</span></h1></Reveal>
-          <Reveal delay={400}><RotatingGlobe /></Reveal>
-          <Reveal delay={600}><div className="flex gap-4 mt-8 justify-center"><a href="#join" className="bg-white text-black px-8 py-3 rounded-full font-bold hover:scale-105 transition">Join Us</a><Link to="/events" className="bg-orange-600 text-white px-8 py-3 rounded-full font-bold hover:scale-105 transition">Projects</Link></div></Reveal>
+    <div className="min-h-screen bg-black pt-28 pb-12 px-4 relative">
+       <div className="absolute top-0 right-0 w-full h-[500px] bg-gradient-to-b from-red-900/20 to-transparent pointer-events-none"></div>
+
+      <div className="container mx-auto max-w-3xl relative z-10">
+        <Reveal>
+        <div className="text-center mb-10">
+          <div className="inline-block p-4 rounded-full bg-red-600/20 mb-4 border border-red-500/50">
+             <School className="w-12 h-12 text-red-500" />
+          </div>
+          <h1 className="text-4xl font-black text-white mb-2">START A CHAPTER</h1>
+          <p className="text-gray-400">Raise a Fire Hive Colony in your Secondary School.</p>
         </div>
-      </header>
-      <section className="py-12 bg-zinc-950"><div className="container mx-auto"><SevenMountains /></div></section>
-      <section id="join" className="py-20 px-4 bg-black relative"><div className="container mx-auto max-w-xl relative z-10"><Reveal><div className="bg-black/80 border border-orange-500/50 p-8 rounded-3xl"><h2 className="text-3xl font-black text-center text-white mb-2">JOIN THE NETWORK</h2></div></Reveal></div></section>
-    </>
+        </Reveal>
+
+        {step === 1 && (
+          <Reveal delay={200}>
+          <div className="bg-zinc-900/80 backdrop-blur-xl border border-red-500/30 p-8 rounded-3xl shadow-[0_0_60px_rgba(220,38,38,0.1)]">
+            <h2 className="text-xl font-bold text-white mb-6 border-b border-zinc-700 pb-4">Step 1: School Details</h2>
+            <form ref={form} onSubmit={handleChapterSubmit} className="space-y-4">
+              <div className="grid md:grid-cols-2 gap-4">
+                <input name="user_name" placeholder="Your Full Name" required className="w-full bg-black border border-zinc-700 p-4 rounded-xl text-white outline-none focus:border-red-500" />
+                <input name="user_phone" placeholder="WhatsApp Number" required className="w-full bg-black border border-zinc-700 p-4 rounded-xl text-white outline-none focus:border-red-500" />
+              </div>
+              <input name="user_school" placeholder="Name of Secondary School" required className="w-full bg-black border border-zinc-700 p-4 rounded-xl text-white outline-none focus:border-red-500" />
+              <div className="grid md:grid-cols-2 gap-4">
+                <input name="user_lga" placeholder="Local Govt Area" required className="w-full bg-black border border-zinc-700 p-4 rounded-xl text-white outline-none focus:border-red-500" />
+                <input name="user_state" placeholder="State" required className="w-full bg-black border border-zinc-700 p-4 rounded-xl text-white outline-none focus:border-red-500" />
+              </div>
+              <button type="submit" className="w-full bg-gradient-to-r from-red-600 to-orange-600 text-white font-bold py-4 rounded-xl hover:scale-[1.02] transition shadow-lg text-lg flex items-center justify-center gap-2">
+                Submit & Unlock Training <ArrowRight size={20} />
+              </button>
+            </form>
+          </div>
+          </Reveal>
+        )}
+
+        {step === 2 && (
+          <Reveal>
+            <div className="bg-green-900/20 border border-green-500/50 p-6 rounded-2xl mb-8 flex items-center gap-4">
+              <CheckCircle className="text-green-500 w-8 h-8 flex-shrink-0" />
+              <div>
+                <h3 className="text-white font-bold text-lg">Application Successful!</h3>
+                <p className="text-green-400 text-sm">You are now ready to begin your leadership training. Join the groups below.</p>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div className="bg-zinc-900 border border-zinc-700 p-6 rounded-2xl flex flex-col md:flex-row justify-between items-center gap-4 hover:border-orange-500 transition">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-orange-600 flex items-center justify-center font-bold text-black text-xl">1</div>
+                  <div><h3 className="text-white font-bold text-xl">Basic Kingdom Class</h3><p className="text-gray-400 text-sm">Foundational spiritual training.</p></div>
+                </div>
+                <a href="https://chat.whatsapp.com/EjNGXsRsVhlANipgR77k0b" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-500 transition w-full md:w-auto text-center">Join WhatsApp Group</a>
+              </div>
+
+              <div className="bg-zinc-900 border border-zinc-700 p-6 rounded-2xl flex flex-col md:flex-row justify-between items-center gap-4 hover:border-orange-500 transition">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-orange-600 flex items-center justify-center font-bold text-black text-xl">2</div>
+                  <div><h3 className="text-white font-bold text-xl">Adv. Kingdom Ambassador</h3><p className="text-gray-400 text-sm">Leadership & Influence systems.</p></div>
+                </div>
+                <a href="https://chat.whatsapp.com/I7QY5EmNgY7CbCCmNtucrN" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-500 transition w-full md:w-auto text-center">Join WhatsApp Group</a>
+              </div>
+
+              <div className="bg-zinc-900 border border-zinc-700 p-6 rounded-2xl flex flex-col md:flex-row justify-between items-center gap-4 hover:border-orange-500 transition shadow-[0_0_15px_rgba(249,115,22,0.1)]">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-orange-600 flex items-center justify-center font-bold text-black text-xl">3</div>
+                  <div><h3 className="text-white font-bold text-xl">Agents of Change</h3><p className="text-gray-400 text-sm">The final deployment phase.</p></div>
+                </div>
+                <a href="https://chat.whatsapp.com/EamAUUtVe7106pxqB2rfgm" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-500 transition w-full md:w-auto text-center">Join WhatsApp Group</a>
+              </div>
+            </div>
+          </Reveal>
+        )}
+      </div>
+    </div>
   );
 };
 
