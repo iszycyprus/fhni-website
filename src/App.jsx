@@ -98,7 +98,7 @@ const Card = ({ children, className = "" }) => (
   </div>
 );
 
-// --- NEW COMPONENT: MOUNTAIN DETAIL PAGE ---
+// --- MOUNTAIN DETAIL PAGE ---
 const MountainPage = () => {
   const { id } = useParams();
   const data = mountainData[id];
@@ -107,7 +107,6 @@ const MountainPage = () => {
 
   return (
     <div className="min-h-screen bg-black pt-28 pb-12 px-4">
-      {/* Header Visual */}
       <div className="relative h-64 md:h-80 rounded-3xl overflow-hidden mb-12 border-2 border-orange-500/30 container mx-auto max-w-5xl">
         <img src={data.image} alt={data.title} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent flex flex-col justify-end p-8">
@@ -117,7 +116,6 @@ const MountainPage = () => {
       </div>
 
       <div className="container mx-auto max-w-5xl grid md:grid-cols-2 gap-8">
-        {/* Organizations List */}
         <div className="bg-zinc-900/50 p-8 rounded-2xl border border-zinc-800">
           <div className="flex items-center gap-3 mb-6">
             <div className="bg-blue-600/20 p-3 rounded-full"><Building2 className="text-blue-500 w-8 h-8" /></div>
@@ -132,7 +130,6 @@ const MountainPage = () => {
           </ul>
         </div>
 
-        {/* Careers List */}
         <div className="bg-zinc-900/50 p-8 rounded-2xl border border-zinc-800">
           <div className="flex items-center gap-3 mb-6">
             <div className="bg-orange-600/20 p-3 rounded-full"><Briefcase className="text-orange-500 w-8 h-8" /></div>
@@ -155,7 +152,7 @@ const MountainPage = () => {
   );
 };
 
-// --- UPDATED 7 MOUNTAINS COMPONENT (Now Clickable) ---
+// --- CLICKABLE 7 MOUNTAINS ---
 const SevenMountains = () => {
   const mountains = [
     { id: "religion", name: "Religion", img: "https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=800&auto=format&fit=crop&q=60" },
@@ -177,7 +174,6 @@ const SevenMountains = () => {
             <div className="absolute inset-0 bg-black/40 group-hover:bg-orange-600/60 transition duration-300 flex items-center justify-center z-20">
               <h3 className="text-white font-bold text-lg md:text-xl uppercase tracking-wider text-center px-2 drop-shadow-md">{m.name}</h3>
             </div>
-            {/* Click Hint */}
             <div className="absolute bottom-2 right-2 z-30 opacity-0 group-hover:opacity-100 transition text-white text-xs bg-black/50 px-2 py-1 rounded">View List &rarr;</div>
           </Link>
         ))}
@@ -186,7 +182,7 @@ const SevenMountains = () => {
   );
 };
 
-// --- START A CHAPTER PAGE (With WhatsApp Links) ---
+// --- START A CHAPTER PAGE ---
 const StartChapterPage = () => {
   const [step, setStep] = useState(1);
   const form = useRef();
@@ -316,10 +312,94 @@ const EventsPage = () => {
   );
 };
 
-// --- NEWS & ADMIN ---
+// --- NEWS PAGE ---
 const NewsPage = () => { const [news, setNews] = useState([]); const [loading, setLoading] = useState(true); useEffect(() => { const fetchNews = async () => { try { const q = query(collection(db, "news"), orderBy("date", "desc")); const querySnapshot = await getDocs(q); setNews(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))); } catch (err) {} finally { setLoading(false); } }; fetchNews(); }, []); return (<div className="min-h-screen bg-black pt-28 pb-12 px-4"><div className="container mx-auto max-w-4xl"><h1 className="text-4xl font-black text-white mb-2 text-center">FIELD REPORTS</h1>{loading ? <p className="text-center text-orange-500 animate-pulse">Loading...</p> : <div className="space-y-6">{news.map((item) => (<div key={item.id} className="bg-zinc-900 border-l-4 border-orange-500 p-6 rounded-r-xl"><div className="flex justify-between items-start mb-2"><span className="text-orange-400 font-bold text-xs uppercase">{item.category}</span><span className="text-gray-500 text-xs">{item.date}</span></div><h3 className="text-2xl font-bold text-white mb-2">{item.title}</h3><p className="text-gray-400 whitespace-pre-wrap">{item.content}</p></div>))}</div>}</div></div>); };
 
-const AdminPage = () => { const [isAuthenticated, setIsAuthenticated] = useState(false); const [password, setPassword] = useState(""); const [formData, setFormData] = useState({ title: "", date: "", category: "General", content: "" }); const handleLogin = (e) => { e.preventDefault(); if (password === "fire2026") setIsAuthenticated(true); else alert("Access Denied."); }; const handleAddNews = async (e) => { e.preventDefault(); if(!formData.title) return; await addDoc(collection(db, "news"), formData); alert("Uploaded!"); setFormData({ title: "", date: "", category: "General", content: "" }); }; if (!isAuthenticated) return (<div className="min-h-screen bg-black flex items-center justify-center"><form onSubmit={handleLogin} className="bg-zinc-900 p-8 rounded border border-red-900"><h2 className="text-white font-bold mb-4">WAR ROOM</h2><input type="password" value={password} onChange={e=>setPassword(e.target.value)} className="bg-black text-white p-2 border border-zinc-700 w-full mb-4" placeholder="Code"/><button className="bg-red-600 text-white w-full py-2">ENTER</button></form></div>); return (<div className="min-h-screen bg-black pt-28 pb-12 px-4"><div className="container mx-auto max-w-4xl"><h1 className="text-3xl font-bold text-white mb-8">ADMIN WAR ROOM</h1><form onSubmit={handleAddNews} className="bg-zinc-900 p-6 rounded mb-8 space-y-4"><input placeholder="Title" value={formData.title} onChange={e=>setFormData({...formData, title: e.target.value})} className="w-full bg-black text-white p-3 border border-zinc-700"/><textarea placeholder="Content" value={formData.content} onChange={e=>setFormData({...formData, content: e.target.value})} className="w-full bg-black text-white p-3 border border-zinc-700 h-32"/><button className="bg-green-700 text-white font-bold py-3 w-full">PUBLISH</button></form></div></div>); };
+// --- FIXED ADMIN PAGE (With Delete Function) ---
+const AdminPage = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({ title: "", date: "", category: "General", content: "" });
+  const [posts, setPosts] = useState([]);
+
+  // Fetch posts on load
+  useEffect(() => {
+    if(isAuthenticated) {
+      const fetchPosts = async () => {
+        const q = query(collection(db, "news"), orderBy("date", "desc"));
+        const snapshot = await getDocs(q);
+        setPosts(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+      };
+      fetchPosts();
+    }
+  }, [isAuthenticated]);
+
+  const handleLogin = (e) => { 
+    e.preventDefault(); 
+    if (password === "fire2026") setIsAuthenticated(true); 
+    else alert("Access Denied."); 
+  };
+
+  const handleAddNews = async (e) => { 
+    e.preventDefault(); 
+    if(!formData.title) return; 
+    await addDoc(collection(db, "news"), formData); 
+    alert("Uploaded!"); 
+    setFormData({ title: "", date: "", category: "General", content: "" });
+    // Refresh list
+    const q = query(collection(db, "news"), orderBy("date", "desc"));
+    const snapshot = await getDocs(q);
+    setPosts(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+  };
+
+  const handleDelete = async (id) => {
+    if(window.confirm("Are you sure you want to delete this report?")) {
+      await deleteDoc(doc(db, "news", id));
+      setPosts(posts.filter(post => post.id !== id)); // Remove from screen
+      alert("Deleted.");
+    }
+  };
+
+  if (!isAuthenticated) return (<div className="min-h-screen bg-black flex items-center justify-center"><form onSubmit={handleLogin} className="bg-zinc-900 p-8 rounded border border-red-900"><h2 className="text-white font-bold mb-4">WAR ROOM</h2><input type="password" value={password} onChange={e=>setPassword(e.target.value)} className="bg-black text-white p-2 border border-zinc-700 w-full mb-4" placeholder="Code"/><button className="bg-red-600 text-white w-full py-2">ENTER</button></form></div>);
+  
+  return (
+    <div className="min-h-screen bg-black pt-28 pb-12 px-4">
+      <div className="container mx-auto max-w-4xl">
+        <h1 className="text-3xl font-bold text-white mb-8">ADMIN WAR ROOM</h1>
+        
+        {/* ADD POST FORM */}
+        <form onSubmit={handleAddNews} className="bg-zinc-900 p-6 rounded mb-12 space-y-4 border border-zinc-700">
+          <h2 className="text-xl font-bold text-white">Post New Report</h2>
+          <input placeholder="Title" value={formData.title} onChange={e=>setFormData({...formData, title: e.target.value})} className="w-full bg-black text-white p-3 border border-zinc-700 rounded"/>
+          <div className="grid grid-cols-2 gap-4">
+             <input type="date" value={formData.date} onChange={e=>setFormData({...formData, date: e.target.value})} className="w-full bg-black text-white p-3 border border-zinc-700 rounded"/>
+             <select value={formData.category} onChange={e=>setFormData({...formData, category: e.target.value})} className="w-full bg-black text-white p-3 border border-zinc-700 rounded"><option>General</option><option>Crusade</option><option>Meeting</option></select>
+          </div>
+          <textarea placeholder="Content" value={formData.content} onChange={e=>setFormData({...formData, content: e.target.value})} className="w-full bg-black text-white p-3 border border-zinc-700 h-32 rounded"/>
+          <button className="bg-green-700 text-white font-bold py-3 w-full rounded hover:bg-green-600 transition">PUBLISH</button>
+        </form>
+
+        {/* MANAGE POSTS LIST */}
+        <h2 className="text-xl font-bold text-white mb-4">Manage Existing Reports</h2>
+        <div className="space-y-4">
+          {posts.length === 0 && <p className="text-gray-500">No reports found.</p>}
+          {posts.map(post => (
+            <div key={post.id} className="bg-zinc-900 p-4 rounded border border-zinc-800 flex justify-between items-center">
+              <div>
+                <h3 className="text-white font-bold">{post.title}</h3>
+                <p className="text-gray-500 text-sm">{post.date}</p>
+              </div>
+              <button onClick={() => handleDelete(post.id)} className="bg-red-900/50 p-3 rounded hover:bg-red-600 transition text-white">
+                <Trash2 size={20} />
+              </button>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  );
+};
 
 // --- STANDARD PAGES ---
 const AboutPage = () => (<div className="min-h-screen bg-black pt-28 pb-12 px-4 relative"><div className="container mx-auto max-w-5xl relative z-10"><h1 className="text-4xl font-black text-white mb-8 border-l-8 border-orange-500 pl-6">WHO WE ARE</h1><div className="bg-zinc-900/80 p-6 rounded-2xl border border-zinc-700 mb-12"><p className="text-xl text-gray-200"><span className="text-orange-500 font-bold">Fire Hive Network Int'l</span> is a movement mandated to raise, mentor, and position a generation of young people.</p></div><SevenMountains /></div></div>);
@@ -397,7 +477,17 @@ const App = () => {
             <div className="hidden md:flex gap-6 text-sm font-bold text-gray-300"><Link to="/about" className="hover:text-orange-500">About</Link><Link to="/events" className="hover:text-orange-500">Projects</Link><Link to="/news" className="hover:text-orange-500">News</Link><Link to="/give" className="hover:text-orange-500">Give</Link><Link to="/start-chapter" className="text-red-500 hover:text-white transition">Start Chapter</Link><Link to="/admin" className="text-zinc-600 hover:text-red-500"><Lock size={16}/></Link></div>
             <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-white bg-zinc-800 p-2 rounded">{isOpen ? <X /> : <Menu />}</button>
           </div>
-          {isOpen && (<div className="absolute top-full left-0 w-full bg-zinc-900 border-b border-orange-500 p-6 flex flex-col gap-4 md:hidden"><Link to="/" onClick={() => setIsOpen(false)} className="text-lg font-bold">Home</Link><Link to="/about" onClick={() => setIsOpen(false)} className="text-lg font-bold">About</Link><Link to="/events" onClick={() => setIsOpen(false)} className="text-lg font-bold">Projects</Link><Link to="/news" onClick={() => setIsOpen(false)} className="text-lg font-bold">News</Link><Link to="/start-chapter" onClick={() => setIsOpen(false)} className="text-lg font-bold text-red-500">Start Chapter</Link></div>)}
+          {isOpen && (
+            <div className="absolute top-full left-0 w-full bg-zinc-900 border-b border-orange-500 p-6 flex flex-col gap-4 md:hidden">
+              <Link to="/" onClick={() => setIsOpen(false)} className="text-lg font-bold">Home</Link>
+              <Link to="/about" onClick={() => setIsOpen(false)} className="text-lg font-bold">About</Link>
+              <Link to="/events" onClick={() => setIsOpen(false)} className="text-lg font-bold">Projects</Link>
+              <Link to="/news" onClick={() => setIsOpen(false)} className="text-lg font-bold">News</Link>
+              <Link to="/start-chapter" onClick={() => setIsOpen(false)} className="text-lg font-bold text-red-500">Start Chapter</Link>
+              {/* RESTORED ADMIN LINK */}
+              <Link to="/admin" onClick={() => setIsOpen(false)} className="text-lg font-bold text-zinc-500 border-t border-zinc-800 pt-4">🔒 War Room</Link>
+            </div>
+          )}
         </nav>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -407,7 +497,6 @@ const App = () => {
           <Route path="/news" element={<NewsPage />} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/start-chapter" element={<StartChapterPage />} />
-          {/* NEW DYNAMIC ROUTE FOR MOUNTAINS */}
           <Route path="/mountain/:id" element={<MountainPage />} />
         </Routes>
         <footer className="bg-black py-8 text-center text-zinc-600 text-xs border-t border-zinc-900"><p>&copy; 2025 Fire Hive Network Int'l.</p></footer>
