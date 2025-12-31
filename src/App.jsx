@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
-import emailjs from '@emailjs/browser';
 import { db } from './firebase'; 
 import { collection, addDoc, getDocs, query, orderBy } from 'firebase/firestore'; 
-import { MapPin, Menu, X, Lock, ArrowRight, Facebook, Instagram, Twitter, Mail, Phone, Sword, Calendar, FileText, Users, LogOut, Send, CheckCircle, Flame, Shield, Globe, Copy, Check } from 'lucide-react';
+import { MapPin, Menu, X, Lock, ArrowRight, Facebook, Instagram, Twitter, Mail, Sword, Calendar, Flame, Shield, Users, LogOut, Check, Copy } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 // --- STYLES FOR GLOBE ---
 const globeStyles = `
@@ -205,7 +205,7 @@ const StartChapterPage = () => (
   </div>
 );
 
-// --- WAR ROOM & PORTAL (Previous Code) ---
+// --- WAR ROOM & PORTAL ---
 const WarRoom = () => (
   <div className="min-h-screen bg-red-950 text-white flex flex-col items-center justify-center p-6 text-center pt-20">
     <Sword size={64} className="text-red-500 mb-6 animate-pulse" />
@@ -283,4 +283,3 @@ function App() {
 }
 
 export default App
-
